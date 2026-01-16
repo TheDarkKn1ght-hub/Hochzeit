@@ -59,34 +59,50 @@
       </iframe>
     </section>
 
-  <section id="rsvp">
-  <h2>Rückmeldung</h2>
+    <section id="attendance">
+       <h2>Zu- oder Absage</h2>
 
-  <form id="rsvpForm">
-    <label>
-      Vorname Name
-      <input type="text" name="name" required>
-    </label>
+      <form id="attendanceForm">
 
-    <label>
-      Telefonnummer
-      <input type="tel" name="phone">
-    </label>
+        <label>
+          Name des Haushalts / Hauptkontakt
+          <input type="text" name="name" required>
+        </label>
 
-    <label>
-      Weitere Personen (eine pro Zeile)
-      <textarea name="guests" rows="4"
-        placeholder="z. B.&#10;Max Mustermann&#10;Erika Mustermann"></textarea>
-    </label>
+        <label>
+          Telefonnummer
+          <input type="tel" name="phone">
+        </label>
 
-    <label>
-      Nachricht an uns
-      <textarea name="message" rows="4"></textarea>
-    </label>
+        <fieldset>
+          <legend>Wir kommen …</legend>
 
-    <button type="submit">Rückmeldung senden</button>
-  </form>
-</section>
+          <label class="radio">
+            <input type="radio" name="response" value="Zusage" required>
+            Ja, wir kommen gerne
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="response" value="Absage">
+            Leider können wir nicht kommen
+          </label>
+        </fieldset>
+
+        <label>
+          Weitere Personen (eine pro Zeile)
+          <textarea name="guests" rows="4"
+            placeholder="z. B.&#10;Max Mustermann&#10;Erika Mustermann"></textarea>
+        </label>
+
+        <label>
+          Nachricht an uns
+          <textarea name="message" rows="4"></textarea>
+        </label>
+
+        <button type="submit">Antwort senden</button>
+
+      </form>
+    </section>
     
   </main>
 
