@@ -1,9 +1,78 @@
-/
-├─ index.html
-├─ css/
-│  └─ style.css
-├─ js/
-│  └─ main.js
-├─ images/
-│  └─ (Bilder)
-└─ README.md
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unsere Hochzeit</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Kopfbereich -->
+  <header>
+    <h1>Kim & Marvin</h1>
+    <p class="date">Wir heiraten am <strong>12. Juli 2026</strong></p>
+  </header>
+
+  <!-- Hauptinhalt -->
+  <main>
+
+    <!-- Bild -->
+    <section id="hero">
+      <img src="images/wir.jpg" alt="Foto von Kim und Marvin">
+    </section>
+
+    <!-- Trauung -->
+    <section id="ceremony">
+      <h2>Trauung</h2>
+      <p>
+        Evangelische Stadtkirche Musterstadt<br>
+        Kirchenplatz 1<br>
+        12345 Musterstadt<br>
+        Beginn: 14:00 Uhr
+      </p>
+
+      <iframe
+        src="https://www.google.com/maps?q=Evangelische+Stadtkirche+Musterstadt&output=embed"
+        width="100%"
+        height="300"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+
+    <!-- Feier -->
+    <section id="party">
+      <h2>Feier</h2>
+      <p>
+        Landgut Sonnenschein<br>
+        Feierweg 7<br>
+        12345 Musterstadt
+      </p>
+
+      <iframe
+        src="https://www.google.com/maps?q=Landgut+Sonnenschein+Musterstadt&output=embed"
+        width="100%"
+        height="300"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+
+  </main>
+
+  <!-- Fußbereich -->
+  <footer>
+    <p>Wir freuen uns, diesen besonderen Tag mit euch zu feiern.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
