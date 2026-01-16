@@ -16,22 +16,26 @@ document.getElementById("attendanceForm").addEventListener("submit", function (e
     "&body=" + body;
 });
 
-const weddingDate = new Date("2026-04-16T14:30:00");
+document.addEventListener("DOMContentLoaded", function () {
 
-function updateCountdown() {
-  const now = new Date();
-  const diff = weddingDate - now;
+  const weddingDate = new Date("2026-04-16T14:30:00");
 
-  if (diff <= 0) return;
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    if (diff <= 0) return;
 
-  document.getElementById("days").textContent = days;
-  document.getElementById("hours").textContent = hours;
-  document.getElementById("minutes").textContent = minutes;
-}
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
 
-updateCountdown();
-setInterval(updateCountdown, 60000);
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+
+});
