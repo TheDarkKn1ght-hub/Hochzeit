@@ -1,23 +1,13 @@
-console.log("main.js geladen");
-document.getElementById("attendanceForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const data = new FormData(e.target);
-
-  const body =
-    "Antwort: " + data.get("response") + "%0D%0A%0D%0A" +
-    "Name: " + data.get("name") + "%0D%0A" +
-    "Telefon: " + data.get("phone") + "%0D%0A%0D%0A" +
-    "Weitere Personen:%0D%0A" + data.get("guests") + "%0D%0A%0D%0A" +
-    "Nachricht:%0D%0A" + data.get("message");
-
-  window.location.href =
-    "mailto:marvin.stark@web.de" +
-    "?subject=Zu- oder Absage Hochzeit" +
-    "&body=" + body;
-});
-
 document.addEventListener("DOMContentLoaded", function () {
+
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+
+  if (!daysEl || !hoursEl || !minutesEl) {
+    console.error("Countdown-Elemente nicht gefunden");
+    return;
+  }
 
   const weddingDate = new Date("2026-04-16T14:30:00");
 
@@ -25,18 +15,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const now = new Date();
     const diff = weddingDate - now;
 
-    if (diff <= 0) return;
+    if (diff <= 0) {
+      daysEl.textContent = "0";
+      hoursEl.textContent = "0";
+      minutesEl.textContent = "0";
+      return;
+    }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
+    daysEl.textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+    hoursEl.textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    minutesEl.textContent = Math.floor((diff / (1000 * 60)) % 60);
   }
 
   updateCountdown();
   setInterval(updateCountdown, 60000);
-
 });
