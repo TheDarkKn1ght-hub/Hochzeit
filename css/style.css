@@ -1,0 +1,137 @@
+/* Grundreset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Grundlayout */
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  background-color: #faf9f7;
+  color: #2b2b2b;
+  line-height: 1.6;
+}
+
+/* Zentrale Inhaltsbreite */
+header,
+main,
+footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+header .date {
+  font-size: 1.2rem;
+  color: #6b6b6b;
+}
+
+/* Hero-Bild */
+#hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+#hero img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Sections */
+section {
+  margin-bottom: 4rem;
+}
+
+section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+section p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* Karten */
+iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 280px;
+  border-radius: 6px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #6b6b6b;
+  padding-bottom: 3rem;
+}
+
+/* Mobile Anpassungen */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  section h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* RSVP */
+#rsvp form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#rsvp label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+#rsvp input,
+#rsvp textarea {
+  width: 100%;
+  margin-top: 0.4rem;
+  padding: 0.6rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#rsvp button {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  background-color: #8b7b5a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#rsvp button:hover {
+  background-color: #76684a;
+}
