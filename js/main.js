@@ -1,3 +1,4 @@
+console.log("main.js geladen");
 document.getElementById("attendanceForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
