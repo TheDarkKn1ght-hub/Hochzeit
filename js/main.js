@@ -11,7 +11,7 @@ document.getElementById("attendanceForm").addEventListener("submit", function (e
     "Nachricht:%0D%0A" + data.get("message");
 
   window.location.href =
-    "mailto:EUREMAIL@BEISPIEL.DE" +
+    "mailto:marvin.stark@web.de" +
     "?subject=Zu- oder Absage Hochzeit" +
     "&body=" + body;
 });
