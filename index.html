@@ -36,11 +36,8 @@
         Beginn: 14:30 Uhr
       </p>
 
-      <iframe
-        src="https://maps.app.goo.gl/hcP4Qqf6dcVZv6227&output=embed"
-        width="100%"
-        height="300"
-        style="border:0;"
+     <iframe
+        src="https://www.google.com/maps?q=Jakob+Kemenate+Braunschweig&output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
@@ -56,15 +53,41 @@
       </p>
 
       <iframe
-        src="https://maps.app.goo.gl/ySEMYgUQKmEwfHZj8&output=embed"
-        width="100%"
-        height="300"
-        style="border:0;"
+        src="https://www.google.com/maps?q=Lehmweg+1B+Braunschweig&output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </section>
 
+  <section id="rsvp">
+  <h2>Rückmeldung</h2>
+
+  <form id="rsvpForm">
+    <label>
+      Name des Haushalts / Hauptkontakt
+      <input type="text" name="name" required>
+    </label>
+
+    <label>
+      Telefonnummer
+      <input type="tel" name="phone">
+    </label>
+
+    <label>
+      Weitere Personen (eine pro Zeile)
+      <textarea name="guests" rows="4"
+        placeholder="z. B.&#10;Max Mustermann&#10;Erika Mustermann"></textarea>
+    </label>
+
+    <label>
+      Nachricht an uns
+      <textarea name="message" rows="4"></textarea>
+    </label>
+
+    <button type="submit">Rückmeldung senden</button>
+  </form>
+</section>
+    
   </main>
 
   <!-- Fußbereich -->
