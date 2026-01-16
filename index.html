@@ -16,6 +16,11 @@
   <header>
     <h1>Kim & Marvin</h1>
     <p class="date">Wir heiraten am <strong>16. April 2026</strong></p>
+    <div id="countdown">
+    <div><span id="days">–</span><small>Tage</small></div>
+    <div><span id="hours">–</span><small>Std</small></div>
+    <div><span id="minutes">–</span><small>Min</small></div>
+    </div>
   </header>
 
   <!-- Hauptinhalt -->
@@ -26,7 +31,7 @@
       <img src="images/wir.jpg" alt="Foto von Kim und Marvin">
     </section>
 
-    <!-- Trauung -->
+    <!-- Standesamt -->
     <section id="ceremony">
       <h2>Standesamt</h2>
       <p>
@@ -59,50 +64,85 @@
       </iframe>
     </section>
 
-    <section id="attendance">
-       <h2>Zu- oder Absage</h2>
+    <section id="witnesses">
+  <h2>Unsere Trauzeugen</h2>
 
-      <form id="attendanceForm">
+  <div class="witness-grid">
+    <div class="witness">
+      <img src="images/trauzeuge1.jpg" alt="Trauzeuge">
+      <h3>Name</h3>
+      <p>Trauzeuge</p>
+    </div>
 
-        <label>
-          Name des Haushalts / Hauptkontakt
-          <input type="text" name="name" required>
-        </label>
+    <div class="witness">
+      <img src="images/trauzeugin.jpg" alt="Trauzeugin">
+      <h3>Name</h3>
+      <p>Trauzeugin</p>
+    </div>
+  </div>
+</section>
 
-        <label>
-          Telefonnummer
-          <input type="tel" name="phone">
-        </label>
+  <section id="attendance">
+  <h2>Zu- oder Absage</h2>
 
-        <fieldset>
-          <legend>Wir kommen …</legend>
+  <form action="https://formspree.io/f/mojjjqla" method="POST">
 
-          <label class="radio">
-            <input type="radio" name="response" value="Zusage" required>
-            Ja, wir kommen gerne
-          </label>
+    <label>
+      Name des Haushalts / Hauptkontakt
+      <input type="text" name="name" required>
+    </label>
 
-          <label class="radio">
-            <input type="radio" name="response" value="Absage">
-            Leider können wir nicht kommen
-          </label>
-        </fieldset>
+    <label>
+      Telefonnummer
+      <input type="tel" name="phone">
+    </label>
 
-        <label>
-          Weitere Personen (eine pro Zeile)
-          <textarea name="guests" rows="4"
-            placeholder="z. B.&#10;Max Mustermann&#10;Erika Mustermann"></textarea>
-        </label>
+    <fieldset>
+      <legend>Wir kommen …</legend>
 
-        <label>
-          Nachricht an uns
-          <textarea name="message" rows="4"></textarea>
-        </label>
+      <label class="radio">
+        <input type="radio" name="response" value="Zusage" required>
+        Ja, wir kommen gerne
+      </label>
 
-        <button type="submit">Antwort senden</button>
+      <label class="radio">
+        <input type="radio" name="response" value="Absage">
+        Leider können wir nicht kommen
+      </label>
+    </fieldset>
 
-      </form>
-    </section>
+    <label>
+      Weitere Personen (eine pro Zeile)
+      <textarea name="guests" rows="4"></textarea>
+    </label>
+
+    <label>
+      Nachricht an uns
+      <textarea name="message" rows="4"></textarea>
+    </label>
+
+    <button type="submit">Antwort senden</button>
+  </form>
+</section>
+
+<section id="faq">
+  <h2>Häufige Fragen</h2>
+
+  <details>
+    <summary>Was sollen wir anziehen?</summary>
+    <p>Festlich, aber bequem – wie ihr euch wohlfühlt.</p>
+  </details>
+
+  <details>
+    <summary>Gibt es Parkmöglichkeiten?</summary>
+    <p>Ja, direkt an der Location.</p>
+  </details>
+
+  <details>
+    <summary>Bis wann sollen wir antworten?</summary>
+    <p>Bitte gebt uns bis spätestens 1. März 2026 Bescheid.</p>
+  </details>
+</section>
     
   </main>
 
