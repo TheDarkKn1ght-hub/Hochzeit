@@ -15,3 +15,23 @@ document.getElementById("attendanceForm").addEventListener("submit", function (e
     "?subject=Zu- oder Absage Hochzeit" +
     "&body=" + body;
 });
+
+const weddingDate = new Date("2026-04-16T14:30:00");
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = weddingDate - now;
+
+  if (diff <= 0) return;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 60000);
