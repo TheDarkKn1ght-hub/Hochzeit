@@ -135,3 +135,57 @@ footer {
 #rsvp button:hover {
   background-color: #76684a;
 }
+
+/* Zu-/Absage */
+#attendance form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#attendance label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+#attendance input,
+#attendance textarea {
+  width: 100%;
+  margin-top: 0.4rem;
+  padding: 0.6rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 1.5rem;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.radio {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#attendance button {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  background-color: #8b7b5a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#attendance button:hover {
+  background-color: #76684a;
+}
