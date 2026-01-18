@@ -284,3 +284,98 @@ legend {
   margin-top: 0.8rem;
   text-align: left;
 }
+
+/* Tagesablauf */
+#schedule {
+  margin-top: 5rem;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 3rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #e0dedb;
+  transform: translateX(-50%);
+}
+
+.event {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.event.left {
+  justify-content: flex-end;
+}
+
+.event.right {
+  justify-content: flex-start;
+}
+
+.event .content {
+  width: 40%;
+  padding: 1rem;
+}
+
+.event.left .content {
+  text-align: right;
+}
+
+.event .time {
+  display: block;
+  font-weight: bold;
+  color: #8b7b5a;
+  margin-bottom: 0.3rem;
+}
+
+.event .image {
+  width: 20%;
+  text-align: center;
+}
+
+.event .image img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #faf9f7;
+  background-color: white;
+}
+
+/* Mobile: untereinander */
+@media (max-width: 700px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .event {
+    flex-direction: row;
+  }
+
+  .event.left,
+  .event.right {
+    justify-content: flex-start;
+  }
+
+  .event .content {
+    width: calc(100% - 80px);
+    text-align: left;
+  }
+
+  .event .image {
+    width: 60px;
+  }
+
+  .event .image img {
+    width: 60px;
+    height: 60px;
+  }
+}
