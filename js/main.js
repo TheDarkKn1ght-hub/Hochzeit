@@ -7,14 +7,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const weddingDate = new Date(Date.UTC(2026, 3, 16, 13, 30));
   // 16. April 2026, 14:30 MESZ → 13:30 UTC
 
+document.addEventListener("DOMContentLoaded", function () {
+
+  const countdown = document.getElementById("countdown");
+  const title = document.querySelector(".countdown-title");
+
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+
+  const weddingDate = new Date(Date.UTC(2026, 3, 16, 13, 30));
+
   function updateCountdown() {
     const now = new Date();
     const diff = weddingDate - now;
 
     if (diff <= 0) {
-      daysEl.textContent = "0";
-      hoursEl.textContent = "0";
-      minutesEl.textContent = "0";
+      countdown.style.display = "none";
+      if (title) title.style.display = "none";
       return;
     }
 
