@@ -379,3 +379,90 @@ legend {
     height: 60px;
   }
 }
+
+/* Timeline */
+.timeline {
+  position: relative;
+  margin-top: 3rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #e0dedb;
+  transform: translateX(-50%);
+}
+
+.event {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.event.left {
+  justify-content: flex-end;
+}
+
+.event.right {
+  justify-content: flex-start;
+}
+
+.event .content {
+  width: 40%;
+  padding: 1rem;
+}
+
+.event.left .content {
+  text-align: right;
+}
+
+.event .time {
+  display: block;
+  font-weight: bold;
+  color: #8b7b5a;
+  margin-bottom: 0.3rem;
+}
+
+/* ICONS exakt in der Mitte */
+.event .icon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #e0dedb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  z-index: 2;
+}
+
+/* Mobile Ansicht */
+@media (max-width: 700px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .event {
+    justify-content: flex-start;
+    padding-left: 50px;
+  }
+
+  .event .icon {
+    left: 20px;
+    transform: translateX(-50%);
+  }
+
+  .event .content {
+    width: 100%;
+    text-align: left;
+  }
+}
