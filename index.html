@@ -114,25 +114,7 @@
   </div>
 </section>
 
-    <section id="witnesses">
-  <h2>Unsere Trauzeugen</h2>
-
-  <div class="witness-grid">
-    <div class="witness">
-      <img src="images/trauzeuge1.jpg" alt="Trauzeuge">
-      <h3>Name</h3>
-      <p>Trauzeuge</p>
-    </div>
-
-    <div class="witness">
-      <img src="images/trauzeugin.jpg" alt="Trauzeugin">
-      <h3>Name</h3>
-      <p>Trauzeugin</p>
-    </div>
-  </div>
-</section>
-
-  <section id="attendance">
+<section id="attendance">
   <h2>Zu- oder Absage</h2>
 
   <form action="https://formspree.io/f/mojjjqla" method="POST">
@@ -161,6 +143,15 @@
       </label>
     </fieldset>
 
+    <!-- ESSEN -->
+    <label id="essen-wrapper" style="display:none;">
+      Welches Essen bringen wir mit? *
+      <input type="text" name="essen" id="essen-input">
+      <small id="duplikat-hinweis" style="display:none; color:#b00020;">
+        Hinweis: Dieses Essen wurde bereits eingetragen.
+      </small>
+    </label>
+
     <label>
       Weitere Personen (eine pro Zeile)
       <textarea name="guests" rows="4"></textarea>
@@ -173,6 +164,24 @@
 
     <button type="submit">Antwort senden</button>
   </form>
+</section>
+
+    <section id="witnesses">
+  <h2>Unsere Trauzeugen</h2>
+
+  <div class="witness-grid">
+    <div class="witness">
+      <img src="images/trauzeuge1.jpg" alt="Trauzeuge">
+      <h3>Name</h3>
+      <p>Trauzeuge</p>
+    </div>
+
+    <div class="witness">
+      <img src="images/trauzeugin.jpg" alt="Trauzeugin">
+      <h3>Name</h3>
+      <p>Trauzeugin</p>
+    </div>
+  </div>
 </section>
 
 <section id="faq">
