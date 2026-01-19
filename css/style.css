@@ -323,10 +323,18 @@ legend {
 .event .content {
   width: 40%;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* ← DAS zentriert Uhrzeit & Titel */
+  text-align: center;    /* ← Textblock als Einheit */
 }
 
 .event.left .content {
-  text-align: right;
+  margin-right: 60px;
+}
+
+.event.right .content {
+  margin-left: 60px;
 }
 
 .event .time {
@@ -415,10 +423,18 @@ legend {
 .event .content {
   width: 40%;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* ← DAS zentriert Uhrzeit & Titel */
+  text-align: center;    /* ← Textblock als Einheit */
 }
 
 .event.left .content {
-  text-align: right;
+  margin-right: 60px;
+}
+
+.event.right .content {
+  margin-left: 60px;
 }
 
 .event .time {
@@ -475,4 +491,13 @@ legend {
 .event.right .content {
   margin-left: 60px;
   text-align: left;
+}
+.event .time {
+  font-weight: bold;
+  color: #8b7b5a;
+  margin-bottom: 0.2rem;
+}
+
+.event h3 {
+  margin: 0.2rem 0 0.5rem;
 }
