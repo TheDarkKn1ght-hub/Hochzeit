@@ -400,7 +400,7 @@ legend {
 .event {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: center;       /* <-- DAS ist entscheidend */
   margin-bottom: 4rem;
 }
 
@@ -465,4 +465,14 @@ legend {
     width: 100%;
     text-align: left;
   }
+}
+
+.event.left .content {
+  margin-right: 60px;
+  text-align: right;
+}
+
+.event.right .content {
+  margin-left: 60px;
+  text-align: left;
 }
