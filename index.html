@@ -21,41 +21,38 @@
 </h2>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const weddingDate = new Date("2026-04-16T14:30:00+02:00");
+  // 16. April 2026, 14:30 MESZ
+  // MESZ = UTC+2 → 12:30 UTC
+  const weddingDate = new Date(Date.UTC(2026, 3, 16, 12, 30, 0));
 
-    const countdown = document.getElementById("countdown");
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
+  const countdown = document.getElementById("countdown");
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
 
-    if (!countdown || !daysEl || !hoursEl || !minutesEl) {
-      console.error("Countdown-Elemente nicht gefunden");
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate.getTime() - now.getTime();
+
+    if (diff <= 0 || isNaN(diff)) {
+      // NICHT ausblenden → nur stoppen
       return;
     }
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = weddingDate - now;
+    const totalMinutes = Math.floor(diff / 60000);
 
-      if (diff <= 0) {
-        countdown.style.display = "none";
-        return;
-      }
+    daysEl.textContent = Math.floor(totalMinutes / 1440);
+    hoursEl.textContent = Math.floor((totalMinutes % 1440) / 60)
+      .toString().padStart(2, "0");
+    minutesEl.textContent = (totalMinutes % 60)
+      .toString().padStart(2, "0");
+  }
 
-      const totalMinutes = Math.floor(diff / 60000);
-
-      daysEl.textContent = Math.floor(totalMinutes / 1440);
-      hoursEl.textContent = Math.floor((totalMinutes % 1440) / 60)
-        .toString().padStart(2, "0");
-      minutesEl.textContent = (totalMinutes % 60)
-        .toString().padStart(2, "0");
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  });
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+});
 </script>
     
   <!-- Hauptinhalt -->
