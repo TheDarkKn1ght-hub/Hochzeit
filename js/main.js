@@ -1,33 +1,25 @@
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  // 16. April 2026, 14:30 MESZ
-  // MESZ = UTC+2 → 12:30 UTC (Safari-sicher)
-  const weddingDate = new Date(Date.UTC(2026, 3, 16, 12, 30, 0));
+document.addEventListener("DOMContentLoaded", () => {
 
   const countdown = document.getElementById("countdown");
   const daysEl = document.getElementById("days");
   const hoursEl = document.getElementById("hours");
   const minutesEl = document.getElementById("minutes");
 
-  if (!countdown || !daysEl || !hoursEl || !minutesEl) {
-    console.error("Countdown-Elemente fehlen");
-    return;
-  }
+  console.log("Countdown Elemente:", countdown, daysEl, hoursEl, minutesEl);
+
+  // TESTDATUM: 24 Stunden in der Zukunft
+  const weddingDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
   function updateCountdown() {
-    const now = new Date();
-    const diff = weddingDate.getTime() - now.getTime();
+    const diff = weddingDate - new Date();
+    const mins = Math.max(0, Math.floor(diff / 60000));
 
-    if (diff <= 0 || isNaN(diff)) return;
+    daysEl.textContent = Math.floor(mins / 1440);
+    hoursEl.textContent = Math.floor((mins % 1440) / 60).toString().padStart(2, "0");
+    minutesEl.textContent = (mins % 60).toString().padStart(2, "0");
 
-    const totalMinutes = Math.floor(diff / 60000);
-
-    daysEl.textContent = Math.floor(totalMinutes / 1440);
-    hoursEl.textContent = Math.floor((totalMinutes % 1440) / 60)
-      .toString().padStart(2, "0");
-    minutesEl.textContent = (totalMinutes % 60)
-      .toString().padStart(2, "0");
+    countdown.style.display = "flex";
   }
 
   updateCountdown();
