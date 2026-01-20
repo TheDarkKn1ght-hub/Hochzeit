@@ -20,23 +20,40 @@
   Noch ein kleines bisschen, bis wir Ja sagen
 </h2>
 
-<div id="countdown">
-  <div class="time-box">
-    <span id="days">–</span>
-    <small>Tage</small>
-  </div>
+<script>
+  // Zielzeit: 16. April 2026, 14:30 Uhr MESZ (zeitzonenstabil)
+  const weddingDate = new Date("2026-04-16T14:30:00+02:00");
 
-  <div class="time-box">
-    <span id="hours">–</span>
-    <small>Stunden</small>
-  </div>
+  const countdown = document.getElementById("countdown");
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
 
-  <div class="time-box">
-    <span id="minutes">–</span>
-    <small>Minuten</small>
-  </div>
-</div>
-  </header>
+  function updateCountdown() {
+    if (!countdown || !daysEl || !hoursEl || !minutesEl) return;
+
+    const now = new Date();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      countdown.style.display = "none";
+      return;
+    }
+
+    const totalMinutes = Math.floor(diff / 60000);
+
+    const days = Math.floor(totalMinutes / 1440);
+    const hours = Math.floor((totalMinutes % 1440) / 60);
+    const minutes = totalMinutes % 60;
+
+    daysEl.textContent = days;
+    hoursEl.textContent = hours.toString().padStart(2, "0");
+    minutesEl.textContent = minutes.toString().padStart(2, "0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 
   <!-- Hauptinhalt -->
   <main>
