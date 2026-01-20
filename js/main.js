@@ -1,18 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-  const countdown = document.getElementById("countdown");
-  const title = document.querySelector(".countdown-title");
-
-  const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
-
-  // Falls irgendetwas fehlt → abbrechen, aber NICHT crashen
-  if (!countdown || !daysEl || !hoursEl || !minutesEl) {
-    console.warn("Countdown-Elemente fehlen");
-    return;
-  }
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
