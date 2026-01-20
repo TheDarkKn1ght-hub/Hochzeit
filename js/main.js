@@ -13,10 +13,23 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // 16. April 2026, 14:30 Uhr MESZ
-  const weddingDate = new Date(Date.UTC(2026, 3, 16, 13, 30));
+<!-- COUNTDOWN -->
+<script>
+  // Zielzeit: 16. April 2026, 14:30 Uhr MESZ
+  // ISO-Format mit Zeitzone ist stabil (Sommer-/Winterzeit korrekt)
+  const weddingDate = new Date("2026-04-16T14:30:00+02:00");
+
+  const countdown = document.getElementById("countdown");
+  const title = document.getElementById("countdown-title");
+
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
 
   function updateCountdown() {
+    // Sicherheitscheck: Script bricht nicht ab, falls ein Element fehlt
+    if (!countdown || !daysEl || !hoursEl || !minutesEl) return;
+
     const now = new Date();
     const diff = weddingDate.getTime() - now.getTime();
 
@@ -28,14 +41,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const totalMinutes = Math.floor(diff / 60000);
 
-    daysEl.textContent = Math.floor(totalMinutes / 1440);
-    hoursEl.textContent = Math.floor((totalMinutes % 1440) / 60);
-    minutesEl.textContent = totalMinutes % 60;
+    const days = Math.floor(totalMinutes / 1440);
+    const hours = Math.floor((totalMinutes % 1440) / 60);
+    const minutes = totalMinutes % 60;
+
+    daysEl.textContent = days;
+    hoursEl.textContent = hours.toString().padStart(2, "0");
+    minutesEl.textContent = minutes.toString().padStart(2, "0");
   }
 
+  // Initiales Update + regelmäßige Aktualisierung
   updateCountdown();
-  setInterval(updateCountdown, 60000);
-});
+  setInterval(updateCountdown, 1000);
+</script>
+
+  
 <script>
 /* === KONFIGURATION === */
 const sheetURL =
