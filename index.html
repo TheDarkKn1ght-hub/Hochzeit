@@ -241,5 +241,20 @@ document.addEventListener("DOMContentLoaded", function () {
   <!-- JavaScript -->
   <script src="js/main.js"></script>
 
+    <script>
+  console.log("DEBUG: Script läuft");
+
+  const cd = document.getElementById("countdown");
+  if (cd) {
+    cd.style.display = "flex";
+    cd.style.visibility = "visible";
+    cd.style.opacity = "1";
+    cd.style.height = "auto";
+    console.log("DEBUG: Countdown erzwungen sichtbar");
+  } else {
+    console.error("DEBUG: countdown-Element nicht im DOM");
+  }
+</script>
+    
 </body>
 </html>
