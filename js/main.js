@@ -73,3 +73,32 @@ essenInput.addEventListener("input", () => {
     : "none";
 });
 </script>
+<script>
+const sheetURL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQCf97RcKu_czfAPWDSzkprQRgcVo9-yaNb0ySxg2XTAgQPt8mj_CZFrpHzWfuzJhCZ1Kfeyuc2VCem/pub?gid=0&single=true&output=csv";
+
+fetch(sheetURL)
+  .then(res => res.text())
+  .then(text => {
+    const items = text
+      .split("\n")
+      .slice(1)                // Kopfzeile entfernen
+      .map(e => e.trim())
+      .filter(e => e.length)
+      .sort((a, b) => a.localeCompare(b, "de"));
+
+    const liste = document.getElementById("essen-liste");
+    liste.innerHTML = "";
+
+    if (items.length === 0) {
+      liste.innerHTML = "<li>Noch keine Einträge</li>";
+      return;
+    }
+
+    items.forEach(e => {
+      const li = document.createElement("li");
+      li.textContent = e;
+      liste.appendChild(li);
+    });
+  });
+</script>
