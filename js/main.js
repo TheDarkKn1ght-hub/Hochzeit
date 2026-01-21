@@ -1,47 +1,40 @@
-<script>
 document.addEventListener("DOMContentLoaded", () => {
 
+  /********* COUNTDOWN *********/
   const countdown = document.getElementById("countdown");
   const daysEl = document.getElementById("days");
   const hoursEl = document.getElementById("hours");
   const minutesEl = document.getElementById("minutes");
 
-  console.log("Countdown Elemente:", countdown, daysEl, hoursEl, minutesEl);
-
-  // TESTDATUM: 24 Stunden in der Zukunft
-  const weddingDate = new Date(Date.now() + 24 * 60 * 60 * 1000);
+  const weddingDate = new Date("2026-04-16T14:30:00+02:00"); // Setze dein echtes Datum
 
   function updateCountdown() {
     const diff = weddingDate - new Date();
     const mins = Math.max(0, Math.floor(diff / 60000));
 
     daysEl.textContent = Math.floor(mins / 1440);
-    hoursEl.textContent = Math.floor((mins % 1440) / 60).toString().padStart(2, "0");
-    minutesEl.textContent = (mins % 60).toString().padStart(2, "0");
+    hoursEl.textContent = Math.floor((mins % 1440) / 60).toString().padStart(2,"0");
+    minutesEl.textContent = (mins % 60).toString().padStart(2,"0");
 
     countdown.style.display = "flex";
   }
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
-});
-</script>
 
-
-document.addEventListener("DOMContentLoaded", () => {
-
+  /********* ESSEN-FELD & DUPLIKAT *********/
   const radios = document.querySelectorAll('input[name="response"]');
   const essenWrapper = document.getElementById("essen-wrapper");
   const essenInput = document.getElementById("essen-input");
   const hinweis = document.getElementById("duplikat-hinweis");
 
-  /* Essensfeld nur bei Zusage anzeigen */
+  // Essensfeld nur bei Zusage anzeigen
   radios.forEach(radio => {
     radio.addEventListener("change", () => {
-      if (radio.value === "Zusage" && radio.checked) {
+      if (radio.checked && radio.value === "Zusage") {
         essenWrapper.style.display = "block";
         essenInput.required = true;
-      } else if (radio.value === "Absage" && radio.checked) {
+      } else if (radio.checked && radio.value === "Absage") {
         essenWrapper.style.display = "none";
         essenInput.required = false;
         essenInput.value = "";
@@ -50,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* CSV-Duplikatwarnung */
+  // CSV-Duplikatwarnung
   const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQCf97RcKu_czfAPWDSzkprQRgcVo9-yaNb0ySxg2XTAgQPt8mj_CZFrpHzWfuzJhCZ1Kfeyuc2VCem/pub?gid=0&single=true&output=csv";
   let bekannteEssen = [];
 
@@ -69,47 +62,30 @@ document.addEventListener("DOMContentLoaded", () => {
     hinweis.style.display = bekannteEssen.includes(wert) ? "block" : "none";
   });
 
+  /********* ESSEN-LISTE ANZEIGEN *********/
+  const liste = document.getElementById("essen-liste");
+  if(liste){
+    fetch(sheetURL)
+      .then(res => res.text())
+      .then(text => {
+        const items = text
+          .split("\n")
+          .slice(1)
+          .map(e => e.trim())
+          .filter(e => e.length)
+          .sort((a,b)=>a.localeCompare(b,"de"));
+
+        liste.innerHTML = "";
+        if(items.length === 0){
+          liste.innerHTML = "<li>Noch keine Einträge</li>";
+        } else {
+          items.forEach(e => {
+            const li = document.createElement("li");
+            li.textContent = e;
+            liste.appendChild(li);
+          });
+        }
+      });
+  }
+
 });
-
-  /* === ESSEN AUS SHEET LADEN === */
-  let bekannteEssen = [];
-
-  fetch(sheetURL)
-    .then(res => res.text())
-    .then(text => {
-      bekannteEssen = text
-        .split("\n")
-        .slice(1)
-        .map(e => e.trim().toLowerCase())
-        .filter(Boolean);
-    });
-  
-<script>
-const sheetURL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQCf97RcKu_czfAPWDSzkprQRgcVo9-yaNb0ySxg2XTAgQPt8mj_CZFrpHzWfuzJhCZ1Kfeyuc2VCem/pub?gid=0&single=true&output=csv";
-
-fetch(sheetURL)
-  .then(res => res.text())
-  .then(text => {
-    const items = text
-      .split("\n")
-      .slice(1)                // Kopfzeile entfernen
-      .map(e => e.trim())
-      .filter(e => e.length)
-      .sort((a, b) => a.localeCompare(b, "de"));
-
-    const liste = document.getElementById("essen-liste");
-    liste.innerHTML = "";
-
-    if (items.length === 0) {
-      liste.innerHTML = "<li>Noch keine Einträge</li>";
-      return;
-    }
-
-    items.forEach(e => {
-      const li = document.createElement("li");
-      li.textContent = e;
-      liste.appendChild(li);
-    });
-  });
-</script>
