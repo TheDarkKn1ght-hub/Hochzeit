@@ -194,6 +194,41 @@
     <li>Lade Liste …</li>
   </ul>
 </section>
+    <!-- GANZ AM ENDE der Datei -->
+<script>
+const sheetURL =
+  "https://docs.google.com/spreadsheets/d/e/DEINE_SHEET_ID/pub?output=csv";
+
+fetch(sheetURL)
+  .then(res => res.text())
+  .then(text => {
+    const items = text
+      .split("\n")
+      .slice(1)
+      .map(e => e.trim())
+      .filter(e => e.length)
+      .sort((a, b) => a.localeCompare(b, "de"));
+
+    const liste = document.getElementById("essen-liste");
+    liste.innerHTML = "";
+
+    if (items.length === 0) {
+      liste.innerHTML = "<li>Noch keine Einträge</li>";
+      return;
+    }
+
+    items.forEach(e => {
+      const li = document.createElement("li");
+      li.textContent = e;
+      liste.appendChild(li);
+    });
+  })
+  .catch(() => {
+    document.getElementById("essen-liste").innerHTML =
+      "<li>Liste konnte nicht geladen werden</li>";
+  });
+</script>
+</body>
     
 <section id="faq">
   <h2>Häufige Fragen</h2>
