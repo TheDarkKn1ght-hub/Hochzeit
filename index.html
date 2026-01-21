@@ -144,16 +144,17 @@
         <input type="radio" name="response" value="Absage">
         Leider können wir nicht kommen
       </label>
-    </fieldset>
 
-    <!-- ESSEN -->
-    <label id="essen-wrapper">
-      Welches Essen bringen wir mit? *
-      <input type="text" name="essen" id="essen-input">
-      <small id="duplikat-hinweis" style="display:none; color:#b00020;">
-        Hinweis: Dieses Essen wurde bereits eingetragen.
-      </small>
-    </label>
+      <!-- Essensfeld direkt nach den Radios -->
+      <label id="essen-wrapper">
+        Welches Essen bringen wir mit? *
+        <input type="text" name="essen" id="essen-input" required>
+        <small id="duplikat-hinweis" style="display:none; color:#b00020;">
+          Hinweis: Dieses Essen wurde bereits eingetragen.
+        </small>
+      </label>
+
+    </fieldset>
 
     <label>
       Weitere Personen (eine pro Zeile)
@@ -168,7 +169,6 @@
     <button type="submit">Antwort senden</button>
   </form>
 </section>
-
     <section id="witnesses">
   <h2>Unsere Trauzeugen</h2>
 
