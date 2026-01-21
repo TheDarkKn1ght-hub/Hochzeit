@@ -28,51 +28,56 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
   
 <script>
-/* === KONFIGURATION === */
-const sheetURL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQCf97RcKu_czfAPWDSzkprQRgcVo9-yaNb0ySxg2XTAgQPt8mj_CZFrpHzWfuzJhCZ1Kfeyuc2VCem/pub?gid=0&single=true&output=csv";
+document.addEventListener("DOMContentLoaded", () => {
 
-/* === ESSEN AUS SHEET LADEN === */
-let bekannteEssen = [];
+  const sheetURL =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQCf97RcKu_czfAPWDSzkprQRgcVo9-yaNb0ySxg2XTAgQPt8mj_CZFrpHzWfuzJhCZ1Kfeyuc2VCem/pub?gid=0&single=true&output=csv";
 
-fetch(sheetURL)
-  .then(res => res.text())
-  .then(text => {
-    bekannteEssen = text
-      .split("\n")
-      .slice(1)
-      .map(e => e.trim().toLowerCase())
-      .filter(e => e.length);
+  /* === ESSEN AUS SHEET LADEN === */
+  let bekannteEssen = [];
+
+  fetch(sheetURL)
+    .then(res => res.text())
+    .then(text => {
+      bekannteEssen = text
+        .split("\n")
+        .slice(1)
+        .map(e => e.trim().toLowerCase())
+        .filter(e => e.length);
+    });
+
+  /* === FORM-LOGIK === */
+  const radios = document.querySelectorAll('input[name="response"]');
+  const essenWrapper = document.getElementById("essen-wrapper");
+  const essenInput = document.getElementById("essen-input");
+  const hinweis = document.getElementById("duplikat-hinweis");
+
+  radios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      if (radio.value === "Zusage" && radio.checked) {
+        essenWrapper.style.display = "block";
+        essenInput.required = true;
+      } else if (radio.value === "Absage" && radio.checked) {
+        essenWrapper.style.display = "none";
+        essenInput.required = false;
+        essenInput.value = "";
+        hinweis.style.display = "none";
+      }
+    });
   });
 
-/* === FORM-LOGIK === */
-const radios = document.querySelectorAll('input[name="response"]');
-const essenWrapper = document.getElementById("essen-wrapper");
-const essenInput = document.getElementById("essen-input");
-const hinweis = document.getElementById("duplikat-hinweis");
-
-radios.forEach(radio => {
-  radio.addEventListener("change", () => {
-    if (radio.value === "Zusage" && radio.checked) {
-      essenWrapper.style.display = "block";
-      essenInput.required = true;
-    } else if (radio.value === "Absage" && radio.checked) {
-      essenWrapper.style.display = "none";
-      essenInput.required = false;
-      essenInput.value = "";
-      hinweis.style.display = "none";
-    }
+  /* === DUPLIKAT-WARNUNG === */
+  essenInput.addEventListener("input", () => {
+    const wert = essenInput.value.trim().toLowerCase();
+    hinweis.style.display = bekannteEssen.includes(wert)
+      ? "block"
+      : "none";
   });
-});
 
-/* === DUPLIKAT-WARNUNG === */
-essenInput.addEventListener("input", () => {
-  const wert = essenInput.value.trim().toLowerCase();
-  hinweis.style.display = bekannteEssen.includes(wert)
-    ? "block"
-    : "none";
 });
 </script>
+
+  
 <script>
 const sheetURL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQCf97RcKu_czfAPWDSzkprQRgcVo9-yaNb0ySxg2XTAgQPt8mj_CZFrpHzWfuzJhCZ1Kfeyuc2VCem/pub?gid=0&single=true&output=csv";
