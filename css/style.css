@@ -517,3 +517,13 @@ legend {
   text-align: center;
   font-size: 1rem;
 }
+
+/* Standard: Essensfeld versteckt */
+#essen-wrapper {
+  display: none;
+}
+
+/* Wenn "Zusage" ausgewählt ist → anzeigen */
+input[name="response"][value="Zusage"]:checked ~ #essen-wrapper {
+  display: block;
+}
