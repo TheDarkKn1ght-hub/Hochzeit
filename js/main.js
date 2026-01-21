@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* CSV-Duplikatwarnung */
-  const sheetURL = "https://docs.google.com/spreadsheets/d/e/DEINE_SHEET_ID/pub?output=csv";
+  const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQCf97RcKu_czfAPWDSzkprQRgcVo9-yaNb0ySxg2XTAgQPt8mj_CZFrpHzWfuzJhCZ1Kfeyuc2VCem/pub?gid=0&single=true&output=csv";
   let bekannteEssen = [];
 
   fetch(sheetURL)
