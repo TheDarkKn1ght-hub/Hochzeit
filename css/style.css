@@ -1,45 +1,40 @@
-/* Grundreset */
+/* ==============================
+   GRUNDRESET
+============================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Grundlayout */
+/* ==============================
+   BODY + WRAPPER
+============================== */
 html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #D1717B; /* RAL 020 60 40 (Annäherung) */
-}
-
-body {
+  background-color: #9fa39a; /* RAL 020 60 40 */
   font-family: "Georgia", "Times New Roman", serif;
   color: #2b2b2b;
   line-height: 1.6;
 }
 
-/* Zentrale Inhaltsbreite */
-header,
-main,
-footer {
+.page-wrapper {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
+  margin: 3rem auto;          /* Abstand zu den Rändern */
+  background-color: #faf9f7;  /* weißer Mittelbereich */
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  padding: 0;                 /* Header/Main/Footer haben eigene Abstände */
 }
 
-header,
-main,
-footer {
-  background-color: #D1717B;
-  border-radius: 12px;
-}
-
-/* Header */
+/* ==============================
+   HEADER
+============================== */
 header {
   text-align: center;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding: 3rem 1.5rem;
 }
 
 header h1 {
@@ -53,7 +48,9 @@ header .date {
   color: #6b6b6b;
 }
 
-/* Hero-Bild */
+/* ==============================
+   HERO-BILD
+============================== */
 #hero {
   text-align: center;
   margin-bottom: 3rem;
@@ -65,7 +62,9 @@ header .date {
   border-radius: 6px;
 }
 
-/* Sections */
+/* ==============================
+   SECTIONS
+============================== */
 section {
   margin-bottom: 4rem;
 }
@@ -82,7 +81,9 @@ section p {
   font-size: 1.05rem;
 }
 
-/* Karten */
+/* ==============================
+   IFRAME / KARTEN
+============================== */
 iframe {
   display: block;
   width: 100%;
@@ -91,15 +92,19 @@ iframe {
   border-radius: 6px;
 }
 
-/* Footer */
+/* ==============================
+   FOOTER
+============================== */
 footer {
   text-align: center;
   font-size: 0.95rem;
   color: #6b6b6b;
-  padding-bottom: 3rem;
+  padding: 3rem 1.5rem;
 }
 
-/* Mobile Anpassungen */
+/* ==============================
+   MOBILE ANPASSUNGEN
+============================== */
 @media (max-width: 600px) {
   header h1 {
     font-size: 2rem;
@@ -108,22 +113,32 @@ footer {
   section h2 {
     font-size: 1.4rem;
   }
+
+  .page-wrapper {
+    margin: 1.5rem;
+  }
 }
 
-/* RSVP */
-#rsvp form {
+/* ==============================
+   RSVP / FORMULARE
+============================== */
+#rsvp form,
+#attendance form {
   max-width: 500px;
   margin: 0 auto;
 }
 
-#rsvp label {
+#rsvp label,
+#attendance label {
   display: block;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }
 
 #rsvp input,
-#rsvp textarea {
+#rsvp textarea,
+#attendance input,
+#attendance textarea {
   width: 100%;
   margin-top: 0.4rem;
   padding: 0.6rem;
@@ -133,7 +148,8 @@ footer {
   border-radius: 4px;
 }
 
-#rsvp button {
+#rsvp button,
+#attendance button {
   display: block;
   margin: 2rem auto 0;
   padding: 0.7rem 2rem;
@@ -145,31 +161,9 @@ footer {
   cursor: pointer;
 }
 
-#rsvp button:hover {
+#rsvp button:hover,
+#attendance button:hover {
   background-color: #76684a;
-}
-
-/* Zu-/Absage */
-#attendance form {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-#attendance label {
-  display: block;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-}
-
-#attendance input,
-#attendance textarea {
-  width: 100%;
-  margin-top: 0.4rem;
-  padding: 0.6rem;
-  font-family: inherit;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
 fieldset {
@@ -187,23 +181,9 @@ legend {
   margin-bottom: 0.5rem;
 }
 
-#attendance button {
-  display: block;
-  margin: 2rem auto 0;
-  padding: 0.7rem 2rem;
-  font-size: 1rem;
-  background-color: #8b7b5a;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#attendance button:hover {
-  background-color: #76684a;
-}
-
-/* Countdown Überschrift */
+/* ==============================
+   COUNTDOWN
+============================== */
 .countdown-title {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
@@ -213,14 +193,12 @@ legend {
   text-align: center;
 }
 
-/* Countdown Layout */
 #countdown {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
 }
 
-/* Einzelne Boxen */
 .time-box {
   background-color: #ffffff;
   border: 1px solid #e0dedb;
@@ -230,7 +208,6 @@ legend {
   text-align: center;
 }
 
-/* Zahlen */
 .time-box span {
   display: block;
   font-size: 2.2rem;
@@ -238,7 +215,6 @@ legend {
   color: #2b2b2b;
 }
 
-/* Beschriftung */
 .time-box small {
   display: block;
   margin-top: 0.3rem;
@@ -248,7 +224,6 @@ legend {
   text-transform: uppercase;
 }
 
-/* Mobile Anpassung */
 @media (max-width: 600px) {
   #countdown {
     gap: 0.8rem;
@@ -264,7 +239,9 @@ legend {
   }
 }
 
-/* Trauzeugen */
+/* ==============================
+   TRAUZEUGEN
+============================== */
 .witness-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -279,7 +256,9 @@ legend {
   margin-bottom: 1rem;
 }
 
-/* FAQ */
+/* ==============================
+   FAQ
+============================== */
 #faq details {
   max-width: 700px;
   margin: 1rem auto;
@@ -298,7 +277,9 @@ legend {
   text-align: left;
 }
 
-/* Tagesablauf */
+/* ==============================
+   TAGESABLAUF / TIMELINE
+============================== */
 #schedule {
   margin-top: 5rem;
 }
@@ -320,6 +301,7 @@ legend {
 }
 
 .event {
+  position: relative;
   display: flex;
   align-items: center;
   margin-bottom: 4rem;
@@ -338,23 +320,28 @@ legend {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;   /* ← DAS zentriert Uhrzeit & Titel */
-  text-align: center;    /* ← Textblock als Einheit */
+  align-items: center;
+  text-align: center;
 }
 
 .event.left .content {
   margin-right: 60px;
+  text-align: right;
 }
 
 .event.right .content {
   margin-left: 60px;
+  text-align: left;
 }
 
 .event .time {
-  display: block;
   font-weight: bold;
   color: #8b7b5a;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.event h3 {
+  margin: 0.2rem 0 0.5rem;
 }
 
 .event .image {
@@ -371,93 +358,6 @@ legend {
   background-color: white;
 }
 
-/* Mobile: untereinander */
-@media (max-width: 700px) {
-  .timeline::before {
-    left: 20px;
-  }
-
-  .event {
-    flex-direction: row;
-  }
-
-  .event.left,
-  .event.right {
-    justify-content: flex-start;
-  }
-
-  .event .content {
-    width: calc(100% - 80px);
-    text-align: left;
-  }
-
-  .event .image {
-    width: 60px;
-  }
-
-  .event .image img {
-    width: 60px;
-    height: 60px;
-  }
-}
-
-/* Timeline */
-.timeline {
-  position: relative;
-  margin-top: 3rem;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 2px;
-  height: 100%;
-  background-color: #e0dedb;
-  transform: translateX(-50%);
-}
-
-.event {
-  position: relative;
-  display: flex;
-  align-items: center;       /* <-- DAS ist entscheidend */
-  margin-bottom: 4rem;
-}
-
-.event.left {
-  justify-content: flex-end;
-}
-
-.event.right {
-  justify-content: flex-start;
-}
-
-.event .content {
-  width: 40%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* ← DAS zentriert Uhrzeit & Titel */
-  text-align: center;    /* ← Textblock als Einheit */
-}
-
-.event.left .content {
-  margin-right: 60px;
-}
-
-.event.right .content {
-  margin-left: 60px;
-}
-
-.event .time {
-  display: block;
-  font-weight: bold;
-  color: #8b7b5a;
-  margin-bottom: 0.3rem;
-}
-
-/* ICONS exakt in der Mitte */
 .event .icon {
   position: absolute;
   left: 50%;
@@ -474,7 +374,6 @@ legend {
   z-index: 2;
 }
 
-/* Mobile Ansicht */
 @media (max-width: 700px) {
   .timeline::before {
     left: 20px;
@@ -483,6 +382,7 @@ legend {
   .event {
     justify-content: flex-start;
     padding-left: 50px;
+    flex-direction: row;
   }
 
   .event .icon {
@@ -494,27 +394,20 @@ legend {
     width: 100%;
     text-align: left;
   }
+
+  .event .image {
+    width: 60px;
+  }
+
+  .event .image img {
+    width: 60px;
+    height: 60px;
+  }
 }
 
-.event.left .content {
-  margin-right: 60px;
-  text-align: right;
-}
-
-.event.right .content {
-  margin-left: 60px;
-  text-align: left;
-}
-.event .time {
-  font-weight: bold;
-  color: #8b7b5a;
-  margin-bottom: 0.2rem;
-}
-
-.event h3 {
-  margin: 0.2rem 0 0.5rem;
-}
-
+/* ==============================
+   ESSEN-LISTE / DUPLIKATE
+============================== */
 #essen-liste {
   list-style: none;
   padding: 0;
@@ -531,18 +424,15 @@ legend {
   font-size: 1rem;
 }
 
-/* Essensfeld standardmäßig verstecken */
 #essen-wrapper {
   display: none;
   margin-top: 1rem;
 }
 
-/* Essensfeld erscheint nur bei Zusage */
 input[name="response"][value="Zusage"]:checked ~ #essen-wrapper {
   display: block;
 }
 
-/* Optional: kleine Styling-Anpassung */
 #essen-wrapper input {
   width: 100%;
   padding: 0.5rem;
