@@ -6,9 +6,15 @@
 }
 
 /* Grundlayout */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #D1717B; /* RAL 020 60 40 (Annäherung) */
+}
+
 body {
   font-family: "Georgia", "Times New Roman", serif;
-  background-color: #faf9f7;
   color: #2b2b2b;
   line-height: 1.6;
 }
@@ -20,6 +26,13 @@ footer {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
+}
+
+header,
+main,
+footer {
+  background-color: #D1717B;
+  border-radius: 12px;
 }
 
 /* Header */
