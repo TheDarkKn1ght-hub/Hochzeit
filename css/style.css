@@ -27,7 +27,7 @@ body::before {
   bottom: 0;
   left: 0;
   right: 0;
-  background: url('images/dahlien.png.PNG') repeat; /* exakter Name! */
+  background: url('images/Eukalyptus.PNG') repeat; /* exakter Name! */
   background-position: top center;
   background-size: 150px 150px; /* Größe der Dahlien anpassen */
   pointer-events: none; /* Klicks nicht blockieren */
