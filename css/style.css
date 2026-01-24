@@ -22,7 +22,7 @@ body::before {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: url('images/dahlien.png') repeat-y left center;
+  background: url('images/dahlien.png.PNG') repeat-y left center;
   pointer-events: none; /* Klicks auf den Rand nicht blockieren */
   z-index: 0;
 }
