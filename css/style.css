@@ -10,23 +10,26 @@
 /* ==============================
    BODY + WRAPPER
 ============================== */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #D1717B; /* RAL 020 60 40 */
-  font-family: "Georgia", "Times New Roman", serif;
-  color: #2b2b2b;
-  line-height: 1.6;
+html, body {
+  position: relative;
+  background-color: #D1717B;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: url('images/dahlien.png') repeat-y left center;
+  pointer-events: none; /* Klicks auf den Rand nicht blockieren */
+  z-index: 0;
 }
 
 .page-wrapper {
-  max-width: 900px;
-  margin: 3rem auto;          /* Abstand zu den Rändern */
-  background-color: #faf9f7;  /* weißer Mittelbereich */
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  padding: 0;                 /* Header/Main/Footer haben eigene Abstände */
+  position: relative;
+  z-index: 1; /* Inhalt über den Blumen */
 }
 
 /* ==============================
