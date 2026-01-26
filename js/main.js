@@ -87,5 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
   }
+  document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".witness-mail").forEach(button => {
+    button.addEventListener("click", () => {
+      const user = button.dataset.user;
+      const domain = button.dataset.domain;
+      const subject = encodeURIComponent(button.dataset.subject || "");
+
+      window.location.href =
+        `mailto:${user}@${domain}?subject=${subject}`;
+    });
+  });
+});
 
 });
