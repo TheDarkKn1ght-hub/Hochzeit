@@ -481,3 +481,23 @@ input[name="response"][value="Zusage"]:checked ~ #essen-wrapper {
   border-radius: 4px;
   border: 1px solid #ccc;
 }
+
+.witness-contact {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.mail-button {
+  display: inline-block;
+  padding: 14px 30px;
+  background-color: #D1717B;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.mail-button:hover {
+  background-color: #b85f68;
+}
